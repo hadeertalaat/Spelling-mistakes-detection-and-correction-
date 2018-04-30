@@ -1,1 +1,1 @@
-# NLP-Project
+# Spelling-mistakes detection and correction	
