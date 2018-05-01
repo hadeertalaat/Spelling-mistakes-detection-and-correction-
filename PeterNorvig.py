@@ -35,22 +35,16 @@ def edits2(word):
     "All edits that are two edits away from `word`."
     return (e2 for e1 in edits1(word) for e2 in edits1(e1))
 
-#print(correction('speling'))
-#print(len(WORDS))
-#print (sum(WORDS.values()))
-#print(WORDS.most_common(10))
-
-
 def unit_tests():
-    assert correction('speling') == 'spelling'  # insert
-    assert correction('korrectud') == 'corrected'  # replace 2
-    assert correction('bycycle') == 'bicycle'  # replace
-    assert correction('inconvient') == 'inconvenient'  # insert 2
-    assert correction('arrainged') == 'arranged'  # delete
-    assert correction('peotry') == 'poetry'  # transpose
-    assert correction('peotryy') == 'poetry'  # transpose + delete
-    assert correction('word') == 'word'  # known
-    assert correction('quintessential') == 'quintessential'  # unknown
+    assert correction('speling') == 'spelling'  
+    assert correction('korrectud') == 'corrected'  
+    assert correction('bycycle') == 'bicycle'  
+    assert correction('inconvient') == 'inconvenient' 
+    assert correction('arrainged') == 'arranged' 
+    assert correction('peotry') == 'poetry'  
+    assert correction('peotryy') == 'poetry' 
+    assert correction('word') == 'word' 
+    assert correction('quintessential') == 'quintessential'
     assert words('This is a TEST.') == ['this', 'is', 'a', 'test']
     assert Counter(words('This is a test. 123; A TEST this is.')) == (
         Counter({'123': 1, 'a': 2, 'is': 2, 'test': 2, 'this': 2}))
@@ -101,9 +95,8 @@ def Testset(lines):
 
 
 print(unit_tests())
-spelltest(Testset(open('spell-testset1.txt')))  # Development set
-spelltest(Testset(open('spell-testset2.txt')))  # Final test set
+spelltest(Testset(open('spell-testset1.txt')))
+spelltest(Testset(open('spell-testset2.txt')))
 
 txt= "thrd is thr firt year of college"
-#print([for word in txt.split(" ")])
 print([correction(word) for word in txt.split(" ")])
